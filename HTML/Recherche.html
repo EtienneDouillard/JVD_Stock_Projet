@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Recherche</title>
+    </head>
+  <body>
+  </body>
+<nav>
+  <ul><!-- Nave barre -->
+    <li><a id="currentLink1"  href="../HTML/Recherche.html">Rechercher référence</a></li><!-- Current link pour mettre en blanc la page actuelle -->
+    <li ><a  href="../HTML/Stockage.html">Stocker</a></li>
+  </ul>
+</nav> 
+  <h1>Chercher une référence dans le stock</h1>
+  <p>Test   1 </p>
+
+  <form name="formbarre">
+    <input type="text" name="barre" id="barre" value= "recherche..." />
+    <input type="button" onclick="rechercher() " value="start" />
+  </form>
+  
+  <div id="cahce_dic">
+    <h4> Quantitée : <i class="fas fa-thermometer-quarter"></i> </h4>
+    <div class="slidecontainer">
+      <input type="text" placeholder="quantité" id="fname1" name="quantite">                    
+     </div>
+    <h4 id="emplacement">
+     
+    </h4>
+
+    <div id="capteur">
+      <div class ="capteur_temp">
+              <h4> Emplacement : </h4> 
+              <div class="Quantité_en_stock"> <br> <!--  <?php echo file_get_contents('/var/www/etu10/data//temp1.txt'); ?>--> </div> 
+      </div>
+    </div>
+  </div>
+
+ 
+    <section class="destocké_oui_non"><!-- formulaire pour savoir si c'est destocké ou pas -->
+      <h4>Destocké <i class="fas fa-home"></i> </h4>
+        <P id="destockage">
+              <input type="radio" name = "OUI" value="OUI">OUI
+              <input type="radio" name = "NON" value="NON">NON
+        </P>
+    </section>
+
+    <section class="Quantité_destockée"><!-- Formulaire pour la quantitée destockée -->
+      <h4> Quantitée : <i class="fas fa-thermometer-quarter"></i> </h4>
+      <div class="slidecontainer">
+        <input type="text" placeholder="quantité" id="Quantite_prise" name="quantite">                    
+       </div>
+      
+    </section>
+
+
+    <div id="button"><!-- Boutons soumettre et rénitialiser-->
+      <section class="submit_button">
+        <input type="submit" value="Soumettre">
+      </section>
+      <section class="reset_button">
+        <input type="reset" value="Rénitialiser">
+      </section>
+    </div>
+ 
+
+
+  </div>
+
+
+</html>
