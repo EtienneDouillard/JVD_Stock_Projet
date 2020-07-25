@@ -13,32 +13,34 @@
   </ul>
 </nav> 
   <h1>Chercher une référence dans le stock</h1>
-  <p>Test   1 </p>
 
-  <form name="formbarre">
-    <input type="text" name="barre" id="barre" value= "recherche..." />
-    <input type="button" onclick="rechercher() " value="start" />
-  </form>
-  
-  <div id="cahce_dic">
-    <h4> Quantitée : <i class="fas fa-thermometer-quarter"></i> </h4>
-    <div class="slidecontainer">
-      <input type="text" placeholder="quantité" id="fname1" name="quantite">                    
-     </div>
-    <h4 id="emplacement">
-     
-    </h4>
+<form name="formulaire" action="" target="_blank" method="GET">
 
-    <div id="capteur">
-      <div class ="capteur_temp">
-              <h4> Emplacement : </h4> 
-              <div class="Quantité_en_stock"> <br> <!--  <?php echo file_get_contents('/var/www/etu10/data//temp1.txt'); ?>--> </div> 
+    <input type="text" name="barre" id="barre" placeholder= "recherche..." />
+ 
+    
+    <section class="recherche">
+       <input type="button" onclick="rechercher() " value="start" />
+    </section>
+ 
+    <hr>
+  <div id="cache_clic">
+    <div id="Quantité">
+      <div class ="Quantité">
+              <h4> Quantitée disponible: </h4> 
+              <div class="Quantité_disponible"> <br> <!--  <?php echo file_get_contents(); ?>--> </div> 
       </div>
+    </div>
+    <div id="Emplacement">
+       <div class ="Emplacement">
+              <h4> Emplacement : </h4> 
+              <div class="lieu_ou_trouver"> <br> <!--  <?php echo file_get_contents(); ?>--> </div> 
+        </div>
     </div>
   </div>
 
- 
-    <section class="destocké_oui_non"><!-- formulaire pour savoir si c'est destocké ou pas -->
+  <hr>
+    <section class="destocké_oui_non"><!-- formulaire pour savoir si on le destocke ou pas -->
       <h4>Destocké <i class="fas fa-home"></i> </h4>
         <P id="destockage">
               <input type="radio" name = "OUI" value="OUI">OUI
@@ -53,17 +55,18 @@
        </div>
       
     </section>
-
+    <br>
 
     <div id="button"><!-- Boutons soumettre et rénitialiser-->
       <section class="submit_button">
         <input type="submit" value="Soumettre">
       </section>
+      <br>
       <section class="reset_button">
         <input type="reset" value="Rénitialiser">
       </section>
     </div>
- 
+  </form>
 
 
   </div>
