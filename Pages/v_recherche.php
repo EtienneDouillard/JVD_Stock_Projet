@@ -9,7 +9,7 @@
     //include("./config/config.php");
     try
     {
-      $bdd = new PDO('mysql:host=localhost;dbname=jvd;charset=utf8', 'root', '');
+      $bdd = new PDO('mysql:host=localhost;dbname=jvd', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch (Exception $e)
     {
@@ -18,7 +18,7 @@
     }
 
       // On récupère tout le contenu de la table jvd
-    $reponse = $bdd->query('SELECT ref FROM jvd');
+    $reponse = $bdd->query('SELECT ref FROM produit');
 
     // On affiche chaque entrée une à une
   
@@ -27,13 +27,9 @@
       echo $donnees['ref'] . '<br />';
     }
     $reponse->closeCursor(); // Termine le traitement de la requête
-  
+
 
   ?>
-
-
-
-
 <nav>
   <ul><!-- Nave barre -->
     <li><a id="currentLink1" href="v_recherche.php">Rechercher référence</a></li><!-- Current link pour mettre en blanc la page actuelle -->
