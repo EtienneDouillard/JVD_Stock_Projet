@@ -1,6 +1,3 @@
-<?php
-    include("./config/config.php");
-?>
 <!doctype html>
 <html>
     <head>
@@ -8,11 +5,39 @@
     <title>Recherche</title>
     </head>
   <body>
-  </body>
+<?php
+    //include("./config/config.php");
+    try
+    {
+      $bdd = new PDO('mysql:host=localhost;dbname=jvd;charset=utf8', 'root', '');
+    }
+    catch (Exception $e)
+    {
+            die('Erreur : ' . $e->getMessage());
+   // Si tout va bien, on peut continuer
+    }
+
+      // On récupère tout le contenu de la table jvd
+    $reponse = $bdd->query('SELECT ref FROM jvd');
+
+    // On affiche chaque entrée une à une
+  
+    while ($donnees = $reponse->fetch())
+    {
+      echo $donnees['ref'] . '<br />';
+    }
+    $reponse->closeCursor(); // Termine le traitement de la requête
+  
+
+  ?>
+
+
+
+
 <nav>
   <ul><!-- Nave barre -->
-    <li><a id="currentLink1"  href="../HTML/Recherche.html">Rechercher référence</a></li><!-- Current link pour mettre en blanc la page actuelle -->
-    <li ><a  href="../HTML/Stockage.html">Stocker</a></li>
+    <li><a id="currentLink1" href="v_recherche.php">Rechercher référence</a></li><!-- Current link pour mettre en blanc la page actuelle -->
+    <li ><a href="v_stockage.php">Stocker référence</a></li>
   </ul>
 </nav> 
   <h1>Chercher une référence dans le stock</h1>
@@ -73,6 +98,6 @@
 
 
   </div>
-
+  </body>
 
 </html>

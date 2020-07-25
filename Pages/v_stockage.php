@@ -1,5 +1,13 @@
 <?php
-    include("./config/config.php");
+    //include("../config/config.php");
+    try
+    {
+      $bdd = new PDO('mysql:host=localhost;dbname=jvd;charset=utf8', 'root', '');
+    }
+    catch (Exception $e)
+    {
+            die('Erreur : ' . $e->getMessage());
+    }
 ?>
 <!doctype html>
 <html>
