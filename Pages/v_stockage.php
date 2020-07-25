@@ -16,7 +16,7 @@
     <title>stockage</title>
     </head>
   <body>
-  </body>
+  
 <nav>
   <ul><!-- Nave barre -->
     <li><a  href="v_recherche.php">Rechercher référence</a></li><!-- Current link pour mettre en blanc la page actuelle -->
@@ -24,20 +24,20 @@
   </ul>
 </nav> 
   <h1>Stocker une référence</h1>
-  <form name="formulaire_recherche" action="" target="_blank" method="GET">
+  <form name="formulaire_recherche" action=""  method="GET">
 
     <section class="référence_stockée"><!-- Formulaire pour la référence stockée -->
         <h4> Référence : <i class="fas fa-thermometer-quarter"></i> </h4>
         <div class="slidecontainer">
-          <input type="text" placeholder="référence" id="référence déposée" name="référence">                    
+          <input type="text" placeholder="Référence produit" id="référence déposée" name="ref">                    
+          
          </div>
       </section>
-
 
    <section class="Quantité_stockée"><!-- Formulaire pour la quantitée stockée -->
       <h4> Quantitée : <i class="fas fa-thermometer-quarter"></i> </h4>
       <div class="slidecontainer">
-        <input type="text" placeholder="quantité" id="Quantite_déposée" name="quantite">                    
+        <input type="text" placeholder="Quantité" id="Quantite_déposée" name="qteTotale">                    
        </div>
     </section>
     
@@ -48,6 +48,9 @@
          </div>
       </section>
       <br>
+     
+      
+
       <div id="button"><!-- Boutons soumettre et rénitialiser-->
       <section class="submit_button">
         <input type="submit" value="Soumettre">
@@ -60,4 +63,21 @@
 
   
   </form>
+  
+
+    <?php
+    //Envoie du formulaire dans base de donnée 
+    
+		if (isset($_GET['ref'])) {
+			$mysqli = new mysqli('localhost', 'root', '');
+			$mysqli->set_charset('utf8');
+			$requete='INSERT INTO produit VALUES("'.$_GET['ref'].'","'.$_GET['qteTotale'].'")';
+			$resultat = $mysqli->query($requete);
+			if ($resultat)
+				echo 'Le contact a été ajouté';
+			else
+				echo 'Erreur';
+		  }
+		?>
+      </body>
 </html>
