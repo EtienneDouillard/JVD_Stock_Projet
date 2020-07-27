@@ -6,7 +6,7 @@
     </head>
   <body>
 <?php
-    //include("./config/config.php");
+   //include("./config/config.php");
     try
     {
       $bdd = new PDO('mysql:host=localhost;dbname=jvd', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -14,22 +14,25 @@
     catch (Exception $e)
     {
             die('Erreur : ' . $e->getMessage());
-   // Si tout va bien, on peut continuer
+  // Si tout va bien, on peut continuer
     }
 
-      // On récupère tout le contenu de la table jvd
-    $reponse = $bdd->query('SELECT ref FROM produit');
+  // On récupère tout le contenu de la table jvd
+  $reponse = $bdd->query('SELECT ref FROM produit');
 
-    // On affiche chaque entrée une à une
+   On affiche chaque entrée une à une
   
-    while ($donnees = $reponse->fetch())
-    {
+   while ($donnees = $reponse->fetch())
+  {
       echo $donnees['ref'] . '<br />';
     }
     $reponse->closeCursor(); // Termine le traitement de la requête
 
 
+
+
   ?>
+
 <nav>
   <ul><!-- Nave barre -->
     <li><a id="currentLink1" href="v_recherche.php">Rechercher référence</a></li><!-- Current link pour mettre en blanc la page actuelle -->
@@ -38,7 +41,7 @@
 </nav> 
   <h1>Chercher une référence dans le stock</h1>
 
-<form name="formulaire" action="" target="_blank" method="GET">
+<form name="formulaire" action="" target="_blank" method="POST">
 
     <input type="text" name="barre" id="barre" placeholder= "recherche..." />
  
@@ -48,19 +51,23 @@
     </section>
  
     <hr>
+
   <div id="cache_clic">
-    <div id="Quantité">
-      <div class ="Quantité">
-              <h4> Quantitée disponible: </h4> 
-              <div class="Quantité_disponible"> <br> <!--  <?php echo file_get_contents(); ?>--> </div> 
-      </div>
+    <div class="Quantité">
+      <h4> Quantitée disponible: </h4> 
+      <div class="Quantité_disponible"> <br> 
+        <?php 
+          echo file_get_contents(); ?>
+      </div> 
     </div>
-    <div id="Emplacement">
-       <div class ="Emplacement">
-              <h4> Emplacement : </h4> 
-              <div class="lieu_ou_trouver"> <br> <!--  <?php echo file_get_contents(); ?>--> </div> 
-        </div>
+    
+    <div class ="Emplacement">
+      <h4> Emplacement : </h4> 
+        <div class="lieu_ou_trouver"> <br> 
+          <?php echo file_get_contents(); ?>
+        </div> 
     </div>
+    
   </div>
 
   <hr>
@@ -91,7 +98,48 @@
       </section>
     </div>
   </form>
+  <?php 
+    /* ******************
+    Sinspirer de ça 
+    ********************
+    // On récupère les valeurs du formulaire
+    $societe = $_POST ['societe'];
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
+    $telephone = $_POST['telephone'];
 
+    if(!empty($societe)) {
+    echo 'Société est vide';
+    } else{
+    echo 'Société n\'est pas vide';}
+
+
+
+    // a MODIFIER POUR NOUS 
+
+    print("$societe, $nom, $prenom, $email, $telephone");
+
+
+    $link=mysql_connect ($host,$user,$pass);
+    if (!$link) {
+    die ('Erreur de connection au serveur '.mysql_error() ) ;
+    }
+
+    $db=mysql_select_db('Stammtisch');
+    if (!$db)
+    {
+    die ('Impossible de sélectionner la base de données : ' . mysql_error());
+    }
+
+    //Tables
+    $table=mysql_query("insert into inscriptions (societe, nom, prenom, email, telephone) values ( '$societe' , '$nom' , '$prenom' , '$email' , '$telephone');");
+    if (!$table)
+    {
+    die ('ERREUR'.mysql_error() ) ;
+    }
+    */
+  ?>
 
   </div>
   </body>
