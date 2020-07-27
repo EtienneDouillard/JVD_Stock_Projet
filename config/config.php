@@ -5,18 +5,18 @@
  */
 
 //Database parameters
-$servername = "localhost";
+$servername = 'mysql:host=localhost;dbname=jvd;charset=utf8';
 $username = "root";
 $password = "";
-$dbname = "jvd";
 
 mb_internal_encoding('UTF-8');
 
-// Create database m2l connection
-$conn = new PDO('mysql:host=localhost;dbname=jvd;charset=utf8', $username, $password);
+// Create database connection
+try{
+$bdd = new PDO($servername, $username, $password);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+} catch (PDOException $e) {
+    echo 'Connexion échouée : ' . $e->getMessage();
 }
 
 ?>

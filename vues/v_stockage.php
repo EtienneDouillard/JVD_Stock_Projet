@@ -1,13 +1,6 @@
 <?php
-    //include("../config/config.php");
-    try
-    {
-      $bdd = new PDO('mysql:host=localhost;dbname=jvd;charset=utf8', 'root', '');
-    }
-    catch (Exception $e)
-    {
-            die('Erreur : ' . $e->getMessage());
-    }
+	include("../config/config.php");
+	$pagename = "inscription";
 ?>
 <!doctype html>
 <html>
