@@ -28,5 +28,9 @@ switch($uc){
         include("controleur/c_destockage.php");
         break;
     }
+    case 'stockage' :{
+        include("controleur/c_stockage.php");
+        break;
+    }
 }    
 ?>
