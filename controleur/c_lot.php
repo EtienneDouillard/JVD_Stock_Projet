@@ -1,0 +1,22 @@
+<?php
+
+if(!isset($_REQUEST['action'])){
+
+    $_REQUEST['action'] = 'demandeConnexion';
+}
+
+$action = $_REQUEST['action'];
+
+switch($action){
+
+    case 'afficherLots':{
+        $reference = $_POST['reference'];
+
+        $lesLots = $pdo->getLesLots($reference);
+
+        include("./vues/v_lot.php");
+
+        break;
+    }
+}    
+?>

@@ -27,23 +27,25 @@
     <input type="submit" name="rechercher"/>
   </form>  
   <br>
-  
-  <table>
-    <tr>
-      <th>Sélection</th>
-      <th>Référence</th>
-      <th>Emplacement</th>
-      <th>Quantité</th>
-    </tr>
     <?php
     if(isset($_GET['reference']) AND !empty($_GET['reference'])){//On vérifie que la variable existe cad qu'il y ai une recherche d'effectuée
       $reference = htmlspecialchars($_GET['reference']);
       $req = $bdd->query('SELECT reference,emplacement,qte FROM lot WHERE reference LIKE "'.$reference.'%"');//Requête SQL
       
       if($req->rowCount() > 0){//On vérifie que la requête à un résultat
+     ?>   
+        <table>
+          <tr>
+            <th>Sélection</th>
+            <th>Référence</th>
+            <th>Emplacement</th>
+            <th>Quantité</th>
+          </tr>
+    <?php      
         while ($donnees = $req->fetch())//On affiche chaque entrée une à une
         {
     ?>  
+<form method="POST" action= >    
     <tr>
       <td><input type="radio" name= "selection" value="selection"></td>
       <td><?= $donnees['reference'] ?></td>
@@ -59,39 +61,32 @@
       } 
     }
   ?>  
-<form method="POST" action= >
-  <!--<section class="destocké_oui_non">//formulaire pour savoir si on le destocke ou pas 
-    <h4>Destocké <i class="fas fa-home"></i> </h4>
-      <P id="destockage">
-            <input type="radio" name= "OUI" value="OUI">OUI
-            <input type="radio" name= "NON" value="NON">NON
-      </P>
-  </section>-->
 
   <section class="Quantité_destockée"><!-- Formulaire pour la quantitée destockée -->
     <h4> Quantitée déstockée : <i class="fas fa-thermometer-quarter"></i> </h4>
     <div class="slidecontainer">
-      <input type="text" placeholder="quantité" id="Quantite_prise" name="quantite">                    
-      </div>
+      <input id="number" type="number" name="quantite">                
+    </div>
   </section>
-  <br>
-
+    <br>
   <div id="button"><!-- Boutons soumettre et rénitialiser-->
     <input type="submit" name="Soumettre"/>
+<<<<<<< Updated upstream
   </div>
   <br>
   <div id="button">
+=======
+>>>>>>> Stashed changes
     <input type="reset" value="Rénitialiser"/>
   </div>
   <br>
   <p class="photo"><img src="../CSS/JVD-logo.png" alt=""></p>
 </form>
 <?php
-/*
   if(isset($_POST['quantite']) AND !empty($_POST['quantite'])){
     $destockage = htmlspecialchars($_GET['quantite']);
-    $destockage = $bdd->query('UPDATE qte FROM lot WHERE reference = );//Requête SQL
-  }*/
+    $destockage = $bdd->query('UPDATE qte FROM lot WHERE reference = ');//Requête SQL
+  }
   ?>
   </body>
 

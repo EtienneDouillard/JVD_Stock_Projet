@@ -1,13 +1,7 @@
-CREATE TABLE IF NOT EXISTS `produit` (
-  reference varchar(100) NOT NULL,
-  `libelle` varchar(100) NOT NULL,
-  `qteTotale` int(11) NOT NULL,
-  constraint pk_produit primary key (reference));
-
 CREATE TABLE IF NOT EXISTS `lot` (
+  `id_lot` int AUTO_INCREMENT,
   `reference` varchar(50) NOT NULL,
-  `numero` int(255) NOT NULL AUTO_INCREMENT,
+  `numero` int(255) NOT NULL,
   `emplacement` varchar(100) NOT NULL,
   `qte` int(255) NOT NULL,
-  constraint pk_lot primary key (numero,reference),
-  constraint fk_lot_produit foreign key (reference) references produit(reference));
+  constraint pk_lot primary key (id_lot));
