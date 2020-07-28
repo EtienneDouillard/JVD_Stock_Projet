@@ -30,7 +30,7 @@
    <section class="Quantité_stockée"><!-- Formulaire pour la quantitée stockée -->
       <h4> Quantitée : <i class="fas fa-thermometer-quarter"></i> </h4>
       <div class="slidecontainer">
-        <input type="text" placeholder="Quantité" id="Quantite_déposée" name="qteTotale">                    
+        <input type="text" placeholder="Quantité" id="Quantite_déposée" name="qte">                    
        </div>
     </section>
     
@@ -58,19 +58,34 @@
   </form>
   
 
-    <?php
-    //Envoie du formulaire dans base de donnée 
-    
-		if (isset($_GET['ref'])) {
-			$mysqli = new mysqli('localhost', 'root', '');
-			$mysqli->set_charset('utf8');
-			$requete='INSERT INTO produit VALUES("'.$_GET['ref'].'","'.$_GET['qteTotale'].'")';
-			$resultat = $mysqli->query($requete);
-			if ($resultat)
-				echo 'Le contact a été ajouté';
-			else
-				echo 'Erreur';
-		  }
-		?>
+   
+     <?php 
+      $reference = $_POST['ref'];
+      $emplacement = $_POST['nom_emplacement'];
+      $qte = $_POST['qte'];
+
+      if(isset($_GET['ref']) AND !empty($_GET['ref'])){//On vérifie que la variable existe cad qu'il y est une recherche d'effectuée
+        $reference = htmlspecialchars($_GET['ref']);
+        //$req = $bdd->query('INSERT INTO  reference,emplacement,qte FROM lot WHERE reference LIKE "'.$reference.'%"');//Requête SQL
+        $req = $bdd->query('SELECT reference FROM produit "'.$reference.'%"');//Requête SQL
+        if ($req==$reference){
+          $sql = "INSERT INTO `lot`(`reference`, `emplacement`,`qte`) VALUES (:ref,:nom_emplacement,:qte)";    // requet insertion SQL dans lot  
+        }else{
+          $sql = "INSERT INTO `produit`(`reference`, `qteTotale`) VALUES (:ref,:qte)";    // requet insertion SQL  dasn produit 
+          $sql = "INSERT INTO `lot`(`reference`, `emplacement`,`qte`) VALUES (:ref,:nom_emplacement,:qte)";    // requet insertion SQL das, mot
+        }
+        $res = $pdo->prepare($sql);
+        $exec = $res->execute(array(":ref"=>$reference,":nom_emplacement"=>$emplacement,":qte"=>$qte));
+      // vérifier si la requête d'insertion a réussi
+      if($exec){
+          echo 'Données insérées';
+      }else{
+      echo "Échec de l'opération d'insertion";
+        }
+    }
+    ?>
+ 
+
+
       </body>
 </html>
