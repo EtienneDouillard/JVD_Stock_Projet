@@ -59,7 +59,7 @@ class PdoJVD
     }
     public function stockage($reference,$emplacement,$quantite){
         var_dump($reference);
-        $req = "insert into lot (refrence,emplacement,qte) values ('$reference','$emplacement','$quantite')";
+        $req = "insert into lot (reference,emplacement,qte) values ('$reference','$emplacement','$quantite')";
         $res = PdoJVD::$monPdo->query($req);
         var_dump($res);
     }
