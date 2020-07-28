@@ -7,6 +7,7 @@
     <head>
     <meta charset="UTF-8">
     <title>stockage</title>
+    <link href="../CSS/stockage.css" rel="stylesheet" type="text/css"/>
     </head>
   <body>
   
@@ -17,7 +18,7 @@
     <li ><a href="v_nouvelle_ref.php">Ajouter une nouvelle référence </a></li>
   </ul>
 </nav> 
-  <h1>Ajouter une référence existante dans le stock</h1>
+  <h2>Ajouter une référence existante dans le stock  </h2>
   <form name="formulaire_recherche" action=""  method="GET">
 
     <section class="référence_stockée"><!-- Formulaire pour la référence stockée -->

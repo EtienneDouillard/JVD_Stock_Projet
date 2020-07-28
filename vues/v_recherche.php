@@ -6,7 +6,9 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link href="../CSS/recherche.css" rel="stylesheet" type="text/css"/>
     <title>Recherche</title>
+
   </head>
   <body>
   <nav>
@@ -15,8 +17,11 @@
       <li ><a href="v_stockage.php">Stocker référence</a></li>
       <li ><a href="v_nouvelle_ref.php">Ajouter une nouvelle référence </a></li>
     </ul>
-  <h1>Chercher une référence dans le stock</h1>
+
+  
   </nav>
+  
+    <h2>Chercher une référence dans le stock</h2>
   <form method="GET">
     <input type="text" name="reference" placeholder= "recherche..." />
     <input type="submit" name="rechercher"/>
@@ -64,7 +69,7 @@
   </section>-->
 
   <section class="Quantité_destockée"><!-- Formulaire pour la quantitée destockée -->
-    <h4> Quantitée : <i class="fas fa-thermometer-quarter"></i> </h4>
+    <h4> Quantitée déstockée : <i class="fas fa-thermometer-quarter"></i> </h4>
     <div class="slidecontainer">
       <input type="text" placeholder="quantité" id="Quantite_prise" name="quantite">                    
       </div>
@@ -73,9 +78,13 @@
 
   <div id="button"><!-- Boutons soumettre et rénitialiser-->
     <input type="submit" name="Soumettre"/>
-    <br>
+  </div>
+  <br>
+  <div id="button">
     <input type="reset" value="Rénitialiser"/>
   </div>
+  <br>
+  <p class="photo"><img src="../CSS/JVD-logo.png" alt=""></p>
 </form>
 <?php
 /*

@@ -6,18 +6,19 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link href="../CSS/nouvelle_ref.css" rel="stylesheet" type="text/css"/>
     <title>Ajout d'une nouvelle référence</title>
   </head>
-  <body>
   <nav>
     <ul><!-- Nave barre -->
       <li><a id="currentLink1" href="v_recherche.php">Rechercher référence</a></li><!-- Current link pour mettre en blanc la page actuelle -->
       <li ><a href="v_stockage.php">Stocker référence</a></li>
       <li ><a id="currentLink3" href="v_nouvelle_ref.php">Ajouter une nouvelle référence </a></li>
     </ul>
- 
   </nav>
-  <h1>Ajouter une nouvelle référence dans le stock</h1>
+  <body>
+ 
+  <h2>Ajouter une nouvelle référence dans le stock</h2>
 
   <form name="formulaire_recherche" action=""  method="GET">
 
