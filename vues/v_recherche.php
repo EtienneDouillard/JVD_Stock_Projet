@@ -13,6 +13,7 @@
     <ul><!-- Nave barre -->
       <li><a id="currentLink1" href="v_recherche.php">Rechercher référence</a></li><!-- Current link pour mettre en blanc la page actuelle -->
       <li ><a href="v_stockage.php">Stocker référence</a></li>
+      <li ><a href="v_nouvelle_ref.php">Ajouter une nouvelle référence </a></li>
     </ul>
   <h1>Chercher une référence dans le stock</h1>
   </nav>
@@ -30,7 +31,7 @@
       <th>Quantité</th>
     </tr>
     <?php
-    if(isset($_GET['reference']) AND !empty($_GET['reference'])){//On vérifie que la variable existe cad qu'il y est une recherche d'effectuée
+    if(isset($_GET['reference']) AND !empty($_GET['reference'])){//On vérifie que la variable existe cad qu'il y ai une recherche d'effectuée
       $reference = htmlspecialchars($_GET['reference']);
       $req = $bdd->query('SELECT reference,emplacement,qte FROM lot WHERE reference LIKE "'.$reference.'%"');//Requête SQL
       
