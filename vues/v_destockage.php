@@ -1,3 +1,7 @@
+
+
+
+
 <?php
     if($res){
         echo "Déstockage effectué";
@@ -7,7 +11,7 @@
 ?>
 <form method="POST" action="index.php?uc=destockage&action=destocke">
     <section class="Quantité_destockée"><!-- Formulaire pour la quantitée destockée -->
-        <h4> Quantitée : <i class="fas fa-thermometer-quarter"></i> </h4>
+        <h4> Quantitée à destocker : <i class="fas fa-thermometer-quarter"></i> </h4>
         <div class="slidecontainer">
         <input id="number" type="number" name="quantite">    
         <input type="hidden" name="reference" value="<?php $refrence?>"/>

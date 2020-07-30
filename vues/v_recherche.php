@@ -18,10 +18,10 @@
       <li ><a href="v_nouvelle_ref.php">Ajouter une nouvelle référence </a></li>
     </ul>
 
-  
   </nav>
   
-    <h2>Chercher une référence dans le stock</h2>
+  <h2>  Chercher une référence dans le stock</h2>
+
   <form method="GET">
     <input type="text" name="reference" placeholder= "recherche..." />
     <input type="submit" name="rechercher"/>
