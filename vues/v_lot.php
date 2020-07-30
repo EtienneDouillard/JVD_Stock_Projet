@@ -22,7 +22,6 @@
             <table>
                 <tr>
                     <th >Sélection</th>
-                    <th >idLot</th>
                     <th >Référence</th>
                     <th >Emplacement</th>
                     <th >Quantité</th>
@@ -38,7 +37,6 @@
             ?>     
                     <tr>
                         <td><input type="radio" name= "id_lot" value="<?= $idLot?>"/></td>
-                        <td><?php echo $idLot ?></td>
                         <td><?php echo $reference ?></td>
                         <td><?php echo $emplacement ?></td>
                         <td><?php echo $qte ?></td>
@@ -66,11 +64,6 @@
                 }
             ?> 
         </div>       
-    
-
-
-
-
     </body>
 </html>
 

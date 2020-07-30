@@ -1,7 +1,3 @@
-
-
-
-
 <?php
     if($res){
         echo "Déstockage effectué";

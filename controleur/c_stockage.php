@@ -19,12 +19,12 @@ switch($action){
         $reference = $_POST['reference'];
         $emplacement = $_POST['emplacement'];
         $quantite = $_POST['quantite'];
-
+        
         $stockage = $pdo->stockage($reference,$emplacement,$quantite);
 
         include("./vues/v_stockage.php");
-
-    break;
+        
+        break;
     }
 }    
 ?>

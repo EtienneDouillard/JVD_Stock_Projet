@@ -36,7 +36,7 @@ class PdoJVD
     }
     public function getLesLots($reference)
     {
-        $req = "select id_lot,reference,numero,emplacement,qte from lot where reference like '$reference'";
+        $req = "select id_lot,reference,numero,emplacement,qte from lot where reference like '$reference%'";
         $res = PdoJVD::$monPdo->query($req);
         $lesLots = $res->fetchAll();
 
@@ -52,14 +52,18 @@ class PdoJVD
         if($qteRestante >= 0){
             $req = "update lot set qte = '$qteRestante' where id_lot = '$idLot'";
             $res = PdoJVD::$monPdo->query($req);  
-
             $bool = true;
         }    
         return $bool;
     }
     public function stockage($reference,$emplacement,$quantite){
-        $req = "insert into lot (reference,emplacement,qte) values ('$reference','$emplacement','$quantite')";
-        $res = PdoJVD::$monPdo->query($req);
+        $bool = false;
+        if(!empty($reference) AND !empty($emplacement) AND !empty($quantite)){//On vérifie que tous les champs sont remplis
+            $req = "insert into lot (reference,emplacement,qte) values ('$reference','$emplacement','$quantite')";
+            $res = PdoJVD::$monPdo->query($req);
+            $bool = true;
+        }
+        return $bool;
     }
 }
 

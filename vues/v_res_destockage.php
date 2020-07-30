@@ -1,10 +1,10 @@
 <?php
-    if($bool){
+    if($destockage){
         echo "Le produit a bien été destocké";
     }
     else{ 
 ?>
-<h3> Veuillez saisir la quantité en fonction de la quantité restante</h3>
+<h3>Pas assez de stock ! Veuillez saisir une quantité valide</h3>
 <form method="POST" action="">
     <section class="Quantité_destockée"><!-- Formulaire pour la quantitée destockée -->
         <h4> Quantitée : <i class="fas fa-thermometer-quarter"></i> </h4>
