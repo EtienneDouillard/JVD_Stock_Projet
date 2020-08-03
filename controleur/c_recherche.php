@@ -11,7 +11,7 @@ switch($action){
 
     case 'afficherFormRecherche':{
 
-        include("./vues/v_search.php");
+        include("./vues/v_recherche.php");
 
         break;
     }

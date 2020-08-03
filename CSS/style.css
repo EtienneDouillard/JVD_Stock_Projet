@@ -1,0 +1,57 @@
+.msg_erreur, .msg_success{
+    margin: 10px 0px;
+    padding:12px;
+}
+.msg_erreur{
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+.msg_success{
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+body{
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    background-color:#56adb2 ;
+    font-family: 'Archivo', sans-serif;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li{
+    float: left;
+}
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover:not(.active){
+    background-color: #111;
+}
+table{
+    border-spacing: 10px 1rem;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
+th{
+    border-spacing: 5px 1rem;
+}   

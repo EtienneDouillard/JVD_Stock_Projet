@@ -4,7 +4,7 @@ class PdoJVD
     private static $serveur = 'mysql:host=localhost';
     private static $bdd = 'dbname=jvd';
     private static $user = 'root';
-    private static $mdp = '';
+    private static $mdp = 'root';
     private static $monPdo;
     private static $monPdoJVD = null;
 
@@ -45,15 +45,17 @@ class PdoJVD
     public function destockage($idLot,$quantite)
     {
         $bool = false;
-        $req = "select qte from lot where id_lot = '$idLot'";
-        $res = PdoJVD::$monPdo->query($req);
-        $qteTotal = $res->fetch();
-        $qteRestante = $qteTotal['qte'] - $quantite;
-        if($qteRestante >= 0){
-            $req = "update lot set qte = '$qteRestante' where id_lot = '$idLot'";
-            $res = PdoJVD::$monPdo->query($req);  
-            $bool = true;
-        }    
+        if(isset($idLot) AND isset($quantite)){
+            $req = "select qte from lot where id_lot = '$idLot'";
+            $res = PdoJVD::$monPdo->query($req);
+            $qteTotal = $res->fetch();
+            $qteRestante = $qteTotal['qte'] - $quantite;
+            if($qteRestante >= 0){
+                $req = "update lot set qte = '$qteRestante' where id_lot = '$idLot'";
+                $res = PdoJVD::$monPdo->query($req);  
+                $bool = true;
+            }    
+        }
         return $bool;
     }
     public function stockage($reference,$emplacement,$quantite){

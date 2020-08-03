@@ -1,50 +1,49 @@
-
 <html>
 <?php  
-  if(isset($stockage) AND $stockage){
-    echo "Le produit a bien été enregistré !"; 
-  }
-  else if(isset($stockage) AND !$stockage){
-    echo "Veuillez remplir tous les champs";
+    if(isset($stockage) AND $stockage){
+      echo '<p class="msg_success">Le produit a bien été enregistré !</p>'; 
+    }
+    else if(isset($stockage) AND !$stockage){
+      echo '<p class="msg_erreur">Veuillez remplir tous les champs</p>';
 ?>  
-  <h3>Ajouter une référence dans le stock</h3>
-
-  <form action="index.php?uc=stockage&action=stocke" method="POST">
-    <br>
-    Reférence :<input type="text" name="reference"/>
-    </br>
-    <br>
-    Qantité :<input type="number" name="quantite"/>
-    </br>
-    <br>
-    Emplacement :<input type="text" name="emplacement"/>
-    </br>
-    <br>
+<div class="titre">
+    <h3>Ajouter une référence dans le stock</h3>
+</div>
+<form method="POST" action="index.php?uc=stockage&action=stocke">
+    <p>
+    <label for="reference">Référence</label> : <input type="text" name="reference" id="reference" required/>
+    </p>
+    <p>
+    <label for="quantite">Quantité</label> : <input type="number" name="quantite" id="quantite" min="0" required/>
+    </p>
+    <p>
+    <label for="emplacement">Emplacement</label> : <input type="text" name="emplacement" id="emplacement" required/>
+    </p>
+    <p>
     <input type="submit" name="submit" /> 
-    </br>
-  </form>
-</html>
+    </p>
+</form>
 <?php
   }
   else{
 ?>
-  <h3>Ajouter une référence dans le stock</h3>
-
-  <form action="index.php?uc=stockage&action=stocke" method="POST">
-    <br>
-    Reférence :<input type="text" name="reference"/>
-    </br>
-    <br>
-    Qantité :<input type="number" name="quantite"/>
-    </br>
-    <br>
-    Emplacement :<input type="text" name="emplacement"/>
-    </br>
-    <br>
+<div class="titre">
+    <h3>Ajouter une référence dans le stock</h3>
+</div>
+<form method="POST" action="index.php?uc=stockage&action=stocke">
+    <p>
+    <label for="reference">Référence</label> : <input type="text" name="reference" id="reference" required/>
+    </p>
+    <p>
+    <label for="quantite">Quantité</label> : <input type="number" name="quantite" id="quantite" min="0" required/>
+    </p>
+    <p>
+    <label for="emplacement">Emplacement</label> : <input type="text" name="emplacement" id="emplacement" required/>
+    </p>
+    <p>
     <input type="submit" name="submit" /> 
-    </br>
-  </form>
-  </html>
+    </p>
+</form>
 <?php
   }
 ?>

@@ -1,25 +1,17 @@
 <?php
-    if($res){
-        echo "Déstockage effectué";
+    if($destockage){
+        echo '<p class="msg_success">Le produit a bien été destocké</p>';
     }
-    else
-    {    
+    else{ 
+        echo '<p class="msg_erreur">Pas assez de stock ! Veuillez saisir une quantité valide</p>';
 ?>
 <form method="POST" action="index.php?uc=destockage&action=destocke">
-    <section class="Quantité_destockée"><!-- Formulaire pour la quantitée destockée -->
-        <h4> Quantitée à destocker : <i class="fas fa-thermometer-quarter"></i> </h4>
-        <div class="slidecontainer">
-        <input id="number" type="number" name="quantite">    
-        <input type="hidden" name="reference" value="<?php $refrence?>"/>
-        <input type="hidden" name="numLot" value="<?php $numLot?>"/>            
-        </div>
-    </section>
-    <br>
-    <div id="button"><!-- Boutons soumettre et rénitialiser-->
-        <input type="submit" name="Soumettre" value="Soumettre"/>
+    <label for="quantite">Quantité à déstocker</label> : <input type="number" name="quantite" id="quantite" min="1" required>            
+    <p>
+        <input type="submit" name="soumettre" value="Soumettre"/>
         <input type="reset" value="Rénitialiser"/>
-    </div>
+    </p>
 </form>
-<?php
+<?php 
     }
-?>    
+?>

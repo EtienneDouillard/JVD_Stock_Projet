@@ -1,19 +1,10 @@
 
 <!doctype html>
 <html>
-  <head>
-    <link href="./CSS/entete.css" rel="stylesheet" type="text/css"/>
-    <meta charset="UTF-8">
-    <title>index</title>
-    
-  </head>
-
 <?php
-
     session_start();
 
     require_once ("fonction/class.pdoJVD.inc.php");
-
 
     include("vues/v_entete.php");
 
@@ -44,8 +35,5 @@
         }
     }    
 ?>
-  <body>
-    
-  </body>
 </html>
 
