@@ -4,7 +4,7 @@
 <?php
     session_start();
 
-    require_once ("fonction/class.pdoJVD.inc.php");
+    require_once ("fonction/class.pdojvd.inc.php");
 
     include("vues/v_entete.php");
 

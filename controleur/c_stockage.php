@@ -9,9 +9,9 @@ $action = $_REQUEST['action'];
 
 switch($action){
 
-    case 'afficherFormStockage':{
+    case 'afficherformstockage':{
 
-        include("./vues/v_stockage.php");
+        include("vues/v_stockage.php");
 
         break;
     }
@@ -22,7 +22,7 @@ switch($action){
         
         $stockage = $pdo->stockage($reference,$emplacement,$quantite);
 
-        include("./vues/v_stockage.php");
+        include("vues/v_stockage.php");
         
         break;
     }

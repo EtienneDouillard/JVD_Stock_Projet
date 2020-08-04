@@ -9,12 +9,12 @@ $action = $_REQUEST['action'];
 
 switch($action){
 
-    case 'afficherLots':{
+    case 'afficherlots':{
         $reference = $_POST['reference'];
 
         $lesLots = $pdo->getLesLots($reference);
 
-        include("./vues/v_lot.php");
+        include("vues/v_lot.php");
 
         break;
     }

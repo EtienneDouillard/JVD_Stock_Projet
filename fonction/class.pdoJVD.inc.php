@@ -61,9 +61,21 @@ class PdoJVD
     public function stockage($reference,$emplacement,$quantite){
         $bool = false;
         if(!empty($reference) AND !empty($emplacement) AND !empty($quantite)){//On vérifie que tous les champs sont remplis
-            $req = "insert into lot (reference,emplacement,qte) values ('$reference','$emplacement','$quantite')";
+            $req = "select * from lot where reference = '$reference' and emplacement = '$emplacement'";
             $res = PdoJVD::$monPdo->query($req);
-            $bool = true;
+            $lot = $res->fetch();
+            if($lot['reference'] == $reference AND $lot['emplacement'] == $emplacement){
+                $qteTotal = $lot['qte'] + $quantite;
+                $idLot = $lot['id_lot'];
+                $req = "update lot set qte = '$qteTotal' where id_lot = '$idLot'";
+                $res = PdoJVD::$monPdo->query($req);
+                $bool = true;
+            }
+            else{
+                $req = "insert into lot (reference,emplacement,qte) values ('$reference','$emplacement','$quantite')";
+                $res = PdoJVD::$monPdo->query($req);
+                $bool = true;
+            }
         }
         return $bool;
     }
