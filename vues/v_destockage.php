@@ -6,8 +6,10 @@
         echo '<p class="msg_erreur">Pas assez de stock ! Veuillez saisir une quantité valide</p>';
 ?>
 <form method="POST" action="index.php?uc=destockage&action=destocke">
-    <label for="quantite">Quantité à déstocker</label> : <input type="number" name="quantite" id="quantite" min="1" required>            
-    <p>
+    <div class="destock">
+        <label for="quantite">Quantité à déstocker</label> : <input type="number" name="quantite" id="quantite" min="1" required>            
+    </div>
+    <p class="btn">
         <input type="submit" name="soumettre" value="Soumettre"/>
         <input type="reset" value="Rénitialiser"/>
     </p>

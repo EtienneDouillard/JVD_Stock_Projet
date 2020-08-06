@@ -76,29 +76,35 @@ li{
     background-color: #333;
     float: left;
     margin: 0 auto;
-    width: 100px;
-    padding: 10px;
+    width: 178px;
+    padding: auto;
 }
 a{
     text-decoration: none;
     color: white;
-    font-size: 10px; 
+    font-size: 15px; 
     
 }
 .titre{
-    font-size: 40px;
+    font-size: 20px;
 }
-input[type="text"],input[type="number"],input[type="reset"],input[type="submit"]{
-    width: 300px;
-    height: 70px;
+input[type="text"],input[type="reset"],input[type="submit"]{
+    width: auto;
+    height: auto;
+    font-size: 20px;
+}
+input[type="number"]{
+    width: 200px;
+    height: 20px;
     font-size: 20px;
 }
 p.btn{
     text-align: center;
+    margin-top: 40px;
 }
 input[type="radio"]{
-    width: 200px;
-    height: 40px;
+    width: 100px;
+    height: 20px;
 }
 ::placeholder{
     font-size: 20px;
@@ -108,7 +114,12 @@ form{
     display: block;
 }
 label{
-    font-size: 40px;
+    font-size: 20px;
+}
+div.destock{
+    font-size:20px;
+    text-align: center;
+    margin-top: 30px;
 }
 table{
     border-spacing: 10px 1rem;
@@ -117,13 +128,13 @@ table{
     padding: 20px;
 }
 th,td{
-    font-size: 35px;
+    font-size: 20px;
 } 
 .msg_erreur, .msg_success{
     margin: 10px 0px;
-    padding: 40px;
+    padding: 10px;
     margin-top: 20px;
-    font-size: 30px;
+    font-size: 15px;
 }
 .msg_erreur{
     color: #D8000C;

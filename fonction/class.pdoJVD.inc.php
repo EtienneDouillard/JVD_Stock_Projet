@@ -4,7 +4,7 @@ class PdoJVD
     private static $serveur = 'mysql:host=localhost';
     private static $bdd = 'dbname=jvd';
     private static $user = 'root';
-    private static $mdp = 'root';
+    private static $mdp = '';
     private static $monPdo;
     private static $monPdoJVD = null;
 
@@ -34,7 +34,7 @@ class PdoJVD
         }
         return PdoJVD::$monPdoJVD;
     }
-    public function getLesLots($reference)
+    public function getLesLots($reference) 
     {
         $req = "select id_lot,reference,numero,emplacement,qte from lot where reference like '$reference%'";
         $res = PdoJVD::$monPdo->query($req);
@@ -46,16 +46,16 @@ class PdoJVD
     {
         $bool = false;
         if(isset($idLot) AND isset($quantite)){
-            $req = "select qte from lot where id_lot = '$idLot'";
-            $res = PdoJVD::$monPdo->query($req);
-            $qteTotal = $res->fetch();
-            $qteRestante = $qteTotal['qte'] - $quantite;
-            if($qteRestante >= 0){
-                $req = "update lot set qte = '$qteRestante' where id_lot = '$idLot'";
-                $res = PdoJVD::$monPdo->query($req);  
-                $bool = true;
-            }    
+        $req = "select qte from lot where id_lot = '$idLot'";
+        $res = PdoJVD::$monPdo->query($req);
+        $qteTotal = $res->fetch();
+        $qteRestante = $qteTotal['qte'] - $quantite;
+        if($qteRestante >= 0){
+            $req = "update lot set qte = '$qteRestante' where id_lot = '$idLot'";
+            $res = PdoJVD::$monPdo->query($req);  
+            $bool = true;
         }
+    }    
         return $bool;
     }
     public function stockage($reference,$emplacement,$quantite){
@@ -71,12 +71,12 @@ class PdoJVD
                 $res = PdoJVD::$monPdo->query($req);
                 $bool = true;
             }
-            else{
+            else{ 
                 $req = "insert into lot (reference,emplacement,qte) values ('$reference','$emplacement','$quantite')";
-                $res = PdoJVD::$monPdo->query($req);
-                $bool = true;
-            }
+            $res = PdoJVD::$monPdo->query($req);
+            $bool = true;
         }
+    }
         return $bool;
     }
 }
