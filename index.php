@@ -15,7 +15,7 @@
     }
 
     $uc = $_REQUEST['uc'];
-
+   
     switch($uc){
         case 'recherche':{
             include("controleur/c_recherche.php");

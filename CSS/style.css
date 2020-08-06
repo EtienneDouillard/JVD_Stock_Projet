@@ -10,10 +10,12 @@
     color: #4F8A10;
     background-color: #DFF2BF;
 }
+html, body {
+    margin:0;
+    padding:0;
+}
 body{
     width: auto;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -25,7 +27,7 @@ nav{
     display: flex;
     flex-direction: column;
     justify-content:center;
-}
+} 
 ul{
     list-style-type: none;
     margin: 0;
@@ -54,4 +56,81 @@ table{
 }
 th{
     border-spacing: 5px 1rem;
+}    
+@media screen and (max-width: 480px){
+html, body {
+    margin:0;
+    padding:0;
+}
+nav{
+    text-align: center;
 }   
+ul{
+    margin:0;
+    padding:0;
+    display: inline-block;
+} 
+li{
+    display: block;
+    list-style-type: none;
+    background-color: #333;
+    float: left;
+    margin: 0 auto;
+    width: 100px;
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 10px; 
+    
+}
+.titre{
+    font-size: 40px;
+}
+input[type="text"],input[type="number"],input[type="reset"],input[type="submit"]{
+    width: 300px;
+    height: 70px;
+    font-size: 20px;
+}
+p.btn{
+    text-align: center;
+}
+input[type="radio"]{
+    width: 200px;
+    height: 40px;
+}
+::placeholder{
+    font-size: 20px;
+    text-align: left;
+}
+form{
+    display: block;
+}
+label{
+    font-size: 40px;
+}
+table{
+    border-spacing: 10px 1rem;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+th,td{
+    font-size: 35px;
+} 
+.msg_erreur, .msg_success{
+    margin: 10px 0px;
+    padding: 40px;
+    margin-top: 20px;
+    font-size: 30px;
+}
+.msg_erreur{
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+.msg_success{
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+}

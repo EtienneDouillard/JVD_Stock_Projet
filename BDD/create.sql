@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `lot` (
+CREATE TABLE `lot` (
   `id_lot` int AUTO_INCREMENT,
   `reference` varchar(50),
   `numero` int(255),

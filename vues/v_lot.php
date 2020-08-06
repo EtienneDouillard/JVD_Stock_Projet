@@ -38,7 +38,7 @@ if(isset($lesLots) AND !empty($lesLots))
     ?>
     </table>
     <label for="quantite">Quantité à déstocker</label> : <input type="number" name="quantite" id="quantite" min="1" required/>            
-    <p>
+    <p class="btn">
         <input type="submit" name="soumettre" value="Soumettre"/>
         <input type="reset" value="Rénitialiser"/>
     </p>
