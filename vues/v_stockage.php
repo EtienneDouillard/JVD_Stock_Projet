@@ -11,13 +11,13 @@
 </div>
 <form method="POST" action="index.php?uc=stockage&action=stocke">
     <p>
-    <label for="reference">Référence</label> : <input type="text" name="reference" id="reference" required/>
+    <label for="reference">Référence : </label><input type="text" name="reference" id="reference" required/>
     </p>
     <p>
-    <label for="quantite">Quantité</label> : <input type="number" name="quantite" id="quantite" min="0" required/>
+    <label for="quantite">Quantité : </label><input type="number" name="quantite" id="quantite" min="0" required/>
     </p>
     <p>
-    <label for="emplacement">Emplacement</label> : <input type="text" name="emplacement" id="emplacement" required/>
+    <label for="emplacement">Emplacement : </label><input type="text" name="emplacement" id="emplacement" required/>
     </p>
     <p>
     <input type="submit" name="submit" /> 
@@ -32,13 +32,13 @@
 </div>
 <form method="POST" action="index.php?uc=stockage&action=stocke">
     <p>
-    <label for="reference">Référence</label> : <input type="text" name="reference" id="reference" required/>
+    <label for="reference">Référence : </label><input type="text" name="reference" id="reference" required/>
     </p>
     <p>
-    <label for="quantite">Quantité</label> : <input type="number" name="quantite" id="quantite" min="0" required/>
+    <label for="quantite">Quantité : </label><input type="number" name="quantite" id="quantite" min="0" required/>
     </p>
     <p>
-    <label for="emplacement">Emplacement</label> : <input type="text" name="emplacement" id="emplacement" required/>
+    <label for="emplacement">Emplacement : </label><input type="text" name="emplacement" id="emplacement" required/>
     </p>
     <p>
     <input type="submit" name="submit" /> 

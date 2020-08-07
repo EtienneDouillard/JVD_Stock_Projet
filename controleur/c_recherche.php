@@ -10,7 +10,6 @@ $action = $_REQUEST['action'];
 switch($action){
 
     case 'afficherformrecherche':{
-
         include("vues/v_recherche.php");
 
         break;

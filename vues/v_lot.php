@@ -13,10 +13,10 @@ if(isset($lesLots) AND !empty($lesLots))
 <form method="POST" action="index.php?uc=destockage&action=destocke">
     <table>
         <tr>
-            <th >Sélection</th>
-            <th >Référence</th>
-            <th >Emplacement</th>
-            <th >Quantité</th>
+            <th>Sélection</th>
+            <th>Référence</th>
+            <th>Emplacement</th>
+            <th>Quantité</th>
         </tr>
     <?php      
         foreach ($lesLots as $unLot)//On affiche chaque entrée une à une
@@ -37,8 +37,10 @@ if(isset($lesLots) AND !empty($lesLots))
         }  
     ?>
     </table>
-    <label for="quantite">Quantité à déstocker</label> : <input type="number" name="quantite" id="quantite" min="1" required/>            
-    <p>
+    <div class="destock">
+    <label  for="quantite">Quantité à déstocker : </label><input type="number" name="quantite" id="quantite" min="1" required/>
+    </div>            
+    <p class="btn">
         <input type="submit" name="soumettre" value="Soumettre"/>
         <input type="reset" value="Rénitialiser"/>
     </p>

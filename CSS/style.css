@@ -1,19 +1,27 @@
 .msg_erreur, .msg_success{
-    margin: 10px 0px;
-    padding:12px;
+    margin: 20px 0px;
+    padding: 30px;
+    margin-top: 60px;
+    font-size: 45px;
 }
+
 .msg_erreur{
     color: #D8000C;
     background-color: #FFD2D2;
 }
+
 .msg_success{
     color: #4F8A10;
     background-color: #DFF2BF;
 }
+
+html, body {
+    margin:0;
+    padding:0;
+}
+
 body{
     width: auto;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -21,11 +29,13 @@ body{
     background-color:#56adb2 ;
     font-family: 'Archivo', sans-serif;
 }
+
 nav{
     display: flex;
     flex-direction: column;
     justify-content:center;
-}
+} 
+
 ul{
     list-style-type: none;
     margin: 0;
@@ -35,23 +45,183 @@ ul{
 }
 li{
     float: left;
+    width: 300px;
 }
+
 li a{
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 20px 10px;
     text-decoration: none;
+    border: solid #111;
+    border-width: 1px;
+    font-size: 23px;
 }
+
+.titre{
+    font-size: 30px;
+}
+
 li a:hover:not(.active){
     background-color: #111;
 }
+form{
+    height: 40px;
+}
+input[type="text"],input[type="number"]{
+    width: auto;
+    height: 50px;
+    font-size: 30px;
+}
+input[type="reset"],input[type="submit"]{
+    width: 300px;
+    height: 55px;
+    font-size: 30px;
+}
+input[type="radio"]{
+    width: 40px;
+    height: 40px;
+}
+
+p.btn{
+    text-align: center;
+    padding: 45px;
+}
+
 table{
     border-spacing: 10px 1rem;
     text-align: center;
     margin: auto;
-    padding: 10px;
+    padding: 40px;
 }
-th{
-    border-spacing: 5px 1rem;
-}   
+
+th, td{
+    border-spacing: 6px 1rem;
+    font-size: 35px;
+}
+
+label{
+    font-size: 35px;
+}
+
+div.destock{
+    font-size:30px;
+    padding: 50px;
+}
+
+div.stock{
+    font-size:30px;
+    padding: 50px;
+}
+
+p{
+    padding: 20px;
+}
+
+@media screen and (max-width: 480px){
+html, body {
+    margin:0;
+    padding:0;
+}
+
+nav{
+    text-align: center;
+} 
+
+ul{
+    margin:0;
+    padding:0;
+    display: inline-block;
+}
+
+li{
+    display: block;
+    list-style-type: none;
+    background-color: #333;
+    float: left;
+    margin: 0 auto;
+    width: 178px;
+    padding: auto;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px; 
+    
+}
+
+.titre{
+    font-size: 20px;
+}
+
+input[type="text"],input[type="reset"],input[type="submit"]{
+    width: auto;
+    height: auto;
+    font-size: 20px;
+}
+
+input[type="number"]{
+    width: 200px;
+    height: 20px;
+    font-size: 20px;
+}
+
+p.btn{
+    text-align: center;
+    margin-top: 40px;
+}
+
+input[type="radio"]{
+    width: 100px;
+    height: 20px;
+}
+
+::placeholder{
+    font-size: 20px;
+    text-align: left;
+}
+
+form{
+    display: block;
+}
+
+label{
+    font-size: 20px;
+}
+
+div.destock{
+    font-size:20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+table{
+    border-spacing: 10px 1rem;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+th,td{
+    font-size: 20px;
+}
+
+.msg_erreur, .msg_success{
+    margin: 10px 0px;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.msg_erreur{
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+
+.msg_success{
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+}
