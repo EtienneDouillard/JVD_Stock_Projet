@@ -7,6 +7,7 @@
 ?>
 <form method="POST" action="index.php?uc=destockage&action=destocke">
     <div class="destock">
+        <input id="prodId" name="prodId" type="hidden" value="<?= $idLot ?>">
         <label for="quantite">Quantité à déstocker : </label><input type="number" name="quantite" id="quantite" min="1" required>            
     </div>
     <p class="btn">
