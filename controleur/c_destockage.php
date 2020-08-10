@@ -19,8 +19,6 @@ switch($action){
 
             $destockage = $pdo->destockage($idLot,$quantite);
 
-            var_dump($destockage);
-
             include("vues/v_destockage.php");
         break;
     }
