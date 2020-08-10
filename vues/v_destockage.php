@@ -5,7 +5,7 @@
     else if($destockage AND $quantite == 1){//message de succès pour une quantité égale à 1
         echo '<p class="msg_success">' . $quantite . ' unité a été retirée du produit numéro "' . $reference . '" à l\'emplacement ' .$emplacement. '.</p>';
     }
-    else{ 
+    else{
         echo '<p class="msg_erreur">Pas assez de stock ! Veuillez saisir une quantité valide</p>';
 ?>
 <div class="titre">
