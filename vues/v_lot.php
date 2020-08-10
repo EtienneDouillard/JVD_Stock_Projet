@@ -33,6 +33,7 @@ if(isset($lesLots) AND !empty($lesLots))
             <td><?php echo $emplacement ?></td>
             <td><?php echo $qte ?></td>
         </tr>
+            
     <?php   
         }  
     ?>

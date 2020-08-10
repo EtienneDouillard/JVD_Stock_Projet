@@ -1,7 +1,10 @@
 <html>
 <?php  
-    if(isset($stockage) AND $stockage){
-      echo '<p class="msg_success">Le produit a bien été enregistré !</p>'; 
+    if(isset($stockage) AND $stockage == 1){
+      echo '<p class="msg_success">Le produit numéro "' . $reference . '" a bien été initialisé !</p>'; 
+    }
+    else if(isset($stockage) AND $stockage == 0){
+      echo '<p class="msg_success">Vous avez ajouté une quantité de ' . $quantite  .' à l\'emplacement ' . $emplacement . ' pour le produit numéro "' . $reference . '".</p>';
     }
     else if(isset($stockage) AND !$stockage){
       echo '<p class="msg_erreur">Veuillez remplir tous les champs</p>';

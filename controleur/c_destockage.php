@@ -18,7 +18,11 @@ switch($action){
             $quantite = $_POST['quantite'];
 
             $destockage = $pdo->destockage($idLot,$quantite);
-
+            
+            $leLot = $pdo->getById($idLot);//On récupère les données de l'élément à destocker
+            $reference = $leLot['reference'];
+            $emplacement = $leLot['emplacement'];
+            
             include("vues/v_destockage.php");
         break;
     }

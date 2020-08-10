@@ -5,7 +5,7 @@
 </head>
 <body>
   <nav>
-    <ul><!-- Nave barre -->
+    <ul><!-- Menu -->
       <li><a href="index.php?uc=destockage&action=afficherformrecherche">Déstocker référence</a></li>
       <li><a href="index.php?uc=stockage&action=afficherformstockage">Stocker référence</a></li>
     </ul>

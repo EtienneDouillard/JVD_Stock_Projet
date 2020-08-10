@@ -37,56 +37,61 @@ class PdoJVD
     }
     public function getLesLots($reference) 
     {
-        $req = "select id_lot,reference,numero,emplacement,qte from lot where reference like '$reference%'";
+        $req = "select * from lot where reference like '$reference%'";
         $res = PdoJVD::$monPdo->query($req);
         $lesLots = $res->fetchAll();
 
         return $lesLots;
     }
+    public function getById($idLot) 
+    {
+        $req = "select * from lot where id_lot = '$idLot'";
+        $res = PdoJVD::$monPdo->query($req);
+        $leLot = $res->fetch();
+
+        return $leLot;
+    } 
     public function destockage($idLot,$quantite)
     {
+        $bool = false;
         if(isset($idLot) AND isset($quantite))
         {
             $req = "select qte from lot where id_lot = '$idLot'";
             $res = PdoJVD::$monPdo->query($req);
             $qteTotal = $res->fetch();
             $qteRestante = $qteTotal['qte'] - $quantite;
-            if($qteRestante >= 0)
+            if($qteRestante >= 0)//On ne peut pas avoir de quantité négative
             {
                 $req = "update lot set qte = '$qteRestante' where id_lot = '$idLot'";
                 $res = PdoJVD::$monPdo->query($req);  
-                return -1;
+                $bool = true;
             }
-            else
-            {
-                return $idLot;
-            }
-        }    
-        
+        }  
+        return $bool;  
     }
     public function stockage($reference,$emplacement,$quantite){
-        $bool = false;
+        $res = -1;
         if(!empty($reference) AND !empty($emplacement) AND !empty($quantite))//On vérifie que tous les champs sont remplis
         {
             $req = "select * from lot where reference = '$reference' and emplacement = '$emplacement'";
             $res = PdoJVD::$monPdo->query($req);
             $lot = $res->fetch();
-            if($lot['reference'] == $reference AND $lot['emplacement'] == $emplacement)
+            if($lot['reference'] == $reference AND $lot['emplacement'] == $emplacement)//si la référence à cet emplacement existe déjà alors on ajoute des unités
             {
                 $qteTotal = $lot['qte'] + $quantite;
                 $idLot = $lot['id_lot'];
                 $req = "update lot set qte = '$qteTotal' where id_lot = '$idLot'";
                 $res = PdoJVD::$monPdo->query($req);
-                $bool = true;
+                $res = 0;
             }
             else
             { 
                 $req = "insert into lot (reference,emplacement,qte) values ('$reference','$emplacement','$quantite')";
                 $res = PdoJVD::$monPdo->query($req);
-                $bool = true;
+                $res = 1;
             }
         }
-        return $bool;
+        return $res;
     }
 }
 
