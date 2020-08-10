@@ -1,8 +1,9 @@
 .msg_erreur, .msg_success{
     margin: 20px 0px;
     padding: 30px;
-    margin-top: 60px;
-    font-size: 45px;
+    margin-top: 200px;
+    font-size: 30px;
+    margin-bottom: 200px;
 }
 
 .msg_erreur{
@@ -52,48 +53,49 @@ li a{
     display: block;
     color: white;
     text-align: center;
-    padding: 20px 10px;
+    padding: 40px 30px;
     text-decoration: none;
     border: solid #111;
     border-width: 1px;
-    font-size: 23px;
+    font-size: 24px;
 }
 
 .titre{
     font-size: 30px;
+    padding: 80px 10px;
 }
 
 li a:hover:not(.active){
     background-color: #111;
 }
 form{
-    height: 40px;
+    height: 60px;
 }
 input[type="text"],input[type="number"]{
-    width: auto;
-    height: 50px;
-    font-size: 30px;
+    width: 440px;
+    height: 60px;
+    font-size: 40px;
 }
 input[type="reset"],input[type="submit"]{
-    width: 300px;
-    height: 55px;
-    font-size: 30px;
+    width: 320px;
+    height: 66px;
+    font-size: 40px;
 }
 input[type="radio"]{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 p.btn{
     text-align: center;
-    padding: 45px;
+    padding: 150px 10px;
 }
 
 table{
     border-spacing: 10px 1rem;
     text-align: center;
     margin: auto;
-    padding: 40px;
+    padding: 150px 10px;
 }
 
 th, td{
@@ -107,16 +109,16 @@ label{
 
 div.destock{
     font-size:30px;
-    padding: 50px;
+    padding: 50px 10px;
 }
 
 div.stock{
     font-size:30px;
-    padding: 50px;
+    padding: 50px 10px;
 }
 
 p{
-    padding: 20px;
+    padding: 70px 10px;
 }
 
 @media screen and (max-width: 480px){
