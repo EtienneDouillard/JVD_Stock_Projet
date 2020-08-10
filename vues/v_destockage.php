@@ -1,5 +1,5 @@
 <?php
-    if($destockage){
+    if($destockage == -1){
         echo '<p class="msg_success">Le produit a bien été destocké</p>';
     }
     else{ 
@@ -7,7 +7,7 @@
 ?>
 <form method="POST" action="index.php?uc=destockage&action=destocke">
     <div class="destock">
-        <input id="prodId" name="prodId" type="hidden" value="<?= $idLot ?>">
+        <input name="id_lot" type="hidden" value="<?= $destockage ?>">
         <label for="quantite">Quantité à déstocker : </label><input type="number" name="quantite" id="quantite" min="1" required>            
     </div>
     <p class="btn">
