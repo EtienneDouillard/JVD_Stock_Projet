@@ -42,10 +42,23 @@ if(isset($lesLots) AND !empty($lesLots))
     <label  for="quantite">Quantité à déstocker : </label><input type="number" name="quantite" id="quantite" min="1" required/>
     </div>            
     <p class="btn">
-        <input type="submit" name="soumettre" value="Soumettre"/>
+        <input type="submit" name="destocke" id="destockage" value="Déstocker"/>
+        <input type="submit" name="supprimer" id="supprimer" value="Supprimer"/>
         <input type="reset" value="Rénitialiser"/>
     </p>
-    
+    <script>
+        document.getElementById("supprimer").addEventListener("click", removerequired);//Si l'utilisateur clic sur supprimer on désactive le required du champ quantite
+
+        function removerequired() {
+            document.getElementById("quantite").removeAttribute("required");
+        }
+
+        document.getElementById("destockage").addEventListener("click", addrequired);//Si l'utilisateur clic sur destocke on réactive l'attribut required
+
+        function addrequired() {
+            document.getElementById("quantite").setAttribute("required", "required");
+        }
+    </script>
 </form>
 <?php        
 }  

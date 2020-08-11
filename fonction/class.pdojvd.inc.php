@@ -93,6 +93,10 @@ class PdoJVD
         }
         return $res;
     }
+    public function delete($idLot){
+        $req = "delete from lot where id_lot = '$idLot'";
+        $res = PdoJVD::$monPdo->query($req);
+    }
 }
 
 ?>
