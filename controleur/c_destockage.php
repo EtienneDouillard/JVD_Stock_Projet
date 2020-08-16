@@ -14,20 +14,22 @@ switch($action){
         break;
     }
     case 'destocke':{
-            $idLot = $_POST['id_lot'];
+            $reference = $_POST['reference'];
+            $numero = $_POST['numero'];
             $quantite = $_POST['quantite'];
 
             if(isset($_POST['destocke'])){//Si l'utilisateur veut destocker un lot
-                $destockage = $pdo->destockage($idLot,$quantite);
+                $destockage = $pdo->destockage($reference, $numero, $quantite);
             
-                $leLot = $pdo->getById($idLot);//On récupère les données de l'élément à destocker
-                $reference = $leLot['reference'];
+                $leLot = $pdo->getByRefNum($reference, $numero);//On récupère les données de l'élément à destocker
+                dump($reference);
+                die();
                 $emplacement = $leLot['emplacement'];
                 
                 include("vues/v_destockage.php");
             }
             else if(isset($_POST['supprimer'])){//Si l'utilisateur veut supprimer un lot 
-                $suppression = $pdo->delete($idLot);
+                $suppression = $pdo->delete($reference,$numero);
 
                 include("vues/v_supprimer.php");
             }

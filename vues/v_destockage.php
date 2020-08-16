@@ -13,7 +13,7 @@
 </div>
 <form method="POST" action="index.php?uc=destockage&action=destocke">
     <div class="destock">
-        <input name="id_lot" type="hidden" value="<?= $idLot ?>">
+        <input name="lot" type="hidden" value="<?= $reference, $numero ?>">
         <label for="quantite">Quantité à déstocker : </label><input type="number" name="quantite" id="quantite" min="1" required>            
     </div>
     <p class="btn">

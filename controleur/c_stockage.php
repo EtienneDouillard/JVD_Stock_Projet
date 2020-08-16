@@ -17,10 +17,11 @@ switch($action){
     }
     case 'stocke':{
         $reference = $_POST['reference'];
+        $numero = $_POST['numero'];
         $emplacement = $_POST['emplacement'];
         $quantite = $_POST['quantite'];
         
-        $stockage = $pdo->stockage($reference,$emplacement,$quantite);
+        $stockage = $pdo->stockage($reference,$numero,$emplacement,$quantite);
 
         include("vues/v_stockage.php");
         

@@ -15,21 +15,22 @@ if(isset($lesLots) AND !empty($lesLots))
         <tr>
             <th>Sélection</th>
             <th>Référence</th>
+            <th>Numéro lot</th>
             <th>Emplacement</th>
             <th>Quantité</th>
         </tr>
     <?php      
         foreach ($lesLots as $unLot)//On affiche chaque entrée une à une
         {
-            $idLot = $unLot['id_lot'];
             $reference = $unLot['reference'];
-            $numLot = $unLot['numero'];
+            $numero = $unLot['numero'];
             $emplacement = $unLot['emplacement'];
             $qte = $unLot['qte'];
     ?>     
         <tr>
-            <td><input type="radio" name= "id_lot" value="<?= $idLot?>" required/></td>
+            <td><input type="radio" name= "lot" value="<?= $reference, $numero?>" required/></td>
             <td><?php echo $reference ?></td>
+            <td><?php echo $numero?></td>
             <td><?php echo $emplacement ?></td>
             <td><?php echo $qte ?></td>
         </tr>

@@ -4,7 +4,7 @@ class PdoJVD
     private static $serveur = 'mysql:host=localhost';
     private static $bdd = 'dbname=jvd';
     private static $user = 'root';
-    private static $mdp = 'root';
+    private static $mdp = '';
     private static $monPdo;
     private static $monPdoJVD = null;
 
@@ -43,35 +43,35 @@ class PdoJVD
 
         return $lesLots;
     }
-    public function getById($idLot) 
+    public function getByRefNum($reference, $numero) 
     {
-        $req = "select * from lot where id_lot = '$idLot'";
+        $req = "select * from lot where reference = '$reference' AND numero = '$numero'";
         $res = PdoJVD::$monPdo->query($req);
         $leLot = $res->fetch();
 
         return $leLot;
     } 
-    public function destockage($idLot,$quantite)
+    public function destockage($reference,$numero,$quantite)
     {
         $bool = false;
-        if(isset($idLot) AND isset($quantite))
+        if(isset($numero) AND isset($reference) AND isset($quantite))
         {
-            $req = "select qte from lot where id_lot = '$idLot'";
+            $req = "select qte from lot where reference = '$reference' AND numero = '$numero'";
             $res = PdoJVD::$monPdo->query($req);
             $qteTotal = $res->fetch();
             $qteRestante = $qteTotal['qte'] - $quantite;
             if($qteRestante >= 0)//On ne peut pas avoir de quantité négative
             {
-                $req = "update lot set qte = '$qteRestante' where id_lot = '$idLot'";
+                $req = "update lot set qte = '$qteRestante' where reference = '$reference' AND numero = '$numero'";
                 $res = PdoJVD::$monPdo->query($req);  
                 $bool = true;
             }
         }  
         return $bool;  
     }
-    public function stockage($reference,$emplacement,$quantite){
+    public function stockage($reference,$numero,$emplacement,$quantite){
         $res = -1;
-        if(!empty($reference) AND !empty($emplacement) AND !empty($quantite))//On vérifie que tous les champs sont remplis
+        if(!empty($reference) AND !empty($numero) AND !empty($emplacement) AND !empty($quantite))//On vérifie que tous les champs sont remplis
         {
             $req = "select * from lot where reference = '$reference' and emplacement = '$emplacement'";
             $res = PdoJVD::$monPdo->query($req);
@@ -79,22 +79,23 @@ class PdoJVD
             if($lot['reference'] == $reference AND $lot['emplacement'] == $emplacement)//si la référence à cet emplacement existe déjà alors on ajoute des unités
             {
                 $qteTotal = $lot['qte'] + $quantite;
-                $idLot = $lot['id_lot'];
-                $req = "update lot set qte = '$qteTotal' where id_lot = '$idLot'";
+                $reference = $lot['reference'];
+                $numero = $lot['numero'];
+                $req = "update lot set qte = '$qteTotal' where reference = '$reference' AND numero = '$numero'";
                 $res = PdoJVD::$monPdo->query($req);
                 $res = 0;
             }
             else
             { 
-                $req = "insert into lot (reference,emplacement,qte) values ('$reference','$emplacement','$quantite')";
+                $req = "insert into lot (reference,numero,emplacement,qte) values ('$reference','$numero','$emplacement','$quantite')";
                 $res = PdoJVD::$monPdo->query($req);
                 $res = 1;
             }
         }
         return $res;
     }
-    public function delete($idLot){
-        $req = "delete from lot where id_lot = '$idLot'";
+    public function delete($reference, $numero){
+        $req = "delete from lot where reference = '$reference' AND numero = '$numero'";
         $res = PdoJVD::$monPdo->query($req);
     }
 }

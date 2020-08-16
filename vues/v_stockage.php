@@ -17,6 +17,9 @@
     <label for="reference">Référence : </label><input type="text" name="reference" id="reference" required/>
     </p>
     <p>
+      <label for="numero">Numéro du lot : </label><input type="number" name="numero" id="numero" required/>
+    </p>
+    <p>
     <label for="quantite">Quantité : </label><input type="number" name="quantite" id="quantite" min="0" required/>
     </p>
     <p>
@@ -37,6 +40,9 @@
     <div class="stock">
       <p>
         <label for="reference">Référence</label> : <input type="text" name="reference" id="reference" required/>
+      </p>
+      <p>
+        <label for="numero">Numéro du lot</label> : <input type="number" name="numero" id="numero" required/>
       </p>
       <p>
         <label for="quantite">Quantité</label> : <input type="number" name="quantite" id="quantite" min="0" required/>
