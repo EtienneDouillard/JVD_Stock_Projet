@@ -57,11 +57,11 @@ class PdoJVD
         $lesLots = $retours->fetchAll(); //récupère  toute la base de données
 
         //création du fichier 
-        $fichier = fopen("BDD/export.csv","w");
+        $fichier = fopen("../export.csv","w");//lien à modifier pour exporer sur le bureau 
         fclose($fichier);
 
         //Ouverture en écriture 
-        $fichier = fopen("BDD/export.csv","w+");
+        $fichier = fopen("../export.csv","w+");//lien à modifier pour exporer sur le bureau 
         $chaine="";
 
         foreach ($lesLots as $unLot)//On affiche chaque entrée une à une
