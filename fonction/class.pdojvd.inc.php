@@ -43,6 +43,57 @@ class PdoJVD
 
         return $lesLots;
     }
+
+    
+
+ //Fonction de télchargement de la base de données dans son intégralité. 
+    public function telechargeLesLots()
+    {
+          
+        //requete
+       // $req = "SELECT DISTINCT reference FROM jvd ORDER BY reference;";
+        $req = "select * from lot";
+        $retours = PdoJVD::$monPdo->query($req);
+        $lesLots = $retours->fetchAll(); //récupère  toute la base de données
+
+        //création du fichier 
+        $fichier = fopen("BDD/export.csv","w");
+        fclose($fichier);
+
+        //Ouverture en écriture 
+        $fichier = fopen("BDD/export.csv","w+");
+        $chaine="";
+
+        foreach ($lesLots as $unLot)//On affiche chaque entrée une à une
+        {
+            $reference = $unLot['reference'];
+            $emplacement = $unLot['emplacement'];
+            $qte = $unLot['qte'];
+            
+            //Ajout des données dans la chaine 
+            $chaine = "\"".$reference."\";";
+            $chaine .= "\"".$emplacement."\";";
+            $chaine .= "\"".$qte."\";";
+
+            fwrite($fichier,$chaine."\r\n");//saut de ligne 
+
+            /*
+            echo '<p> reference =' . $reference . '</p>'; 
+            echo '<p> emplacment = ' . $emplacement . '</p>'; 
+            echo '<p>Quantité ='  . $qte . '</p>';
+            */
+        }
+        
+        fclose($fichier);
+        $bool=true;
+
+        echo '<p class="msg_success"> Ok téléchargement avec succès </p>';
+        
+        return $bool;
+    }
+//////////////////////////////////////////////////////////////////
+
+
     public function getByRefNum($reference, $numero) 
     {
         $req = "select * from lot where reference = '$reference' AND numero = '$numero'";

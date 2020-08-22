@@ -29,6 +29,12 @@
             include("controleur/c_stockage.php");
             break;
         }
+         /*code à ajouter sur serveur pour téléchargement des données   */ 
+         case 'telecharger' :{
+            include("controleur/c_telecharger.php");
+            break;
+        }
+
     }    
 ?>
 </html>
