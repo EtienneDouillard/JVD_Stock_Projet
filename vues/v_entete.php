@@ -8,8 +8,7 @@
     <ul><!-- Menu -->
       <li><a href="index.php?uc=destockage&action=afficherformrecherche">Déstocker référence</a></li>
       <li><a href="index.php?uc=stockage&action=afficherformstockage">Stocker référence</a></li>
-      
-      <li ><a href="index.php?uc=telecharger&action=afficherBtnTelecharger">Télécharger les données</a></li>
+      <li><a href="index.php?uc=telecharger&action=afficherBtnTelecharger">Télécharger les données</a></li>
     </ul>
   </nav>
 </body>
