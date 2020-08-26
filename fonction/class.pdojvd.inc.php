@@ -45,38 +45,46 @@ class PdoJVD
     }
     public function telechargeLesLots()//Fonction de télchargement de la base de données dans son intégralité.
     {
-        $req = "select * from lot";
+        header('Content-Type: text/csv;');
+        header('Content-Disposition: attachment; filename="export.csv"');
+        header("Location: BDD/export.csv");
+
+        $req = "select reference,libelle,emplacement,qte from lot inner join reference on lot.id_ref = reference.id_ref";
         $retours = PdoJVD::$monPdo->query($req);
         $lesLots = $retours->fetchAll(); //récupère  toute la base de données
 
         //création du fichier 
-        $fichier = fopen("../export.csv","w");//lien à modifier pour exporer sur le bureau 
+        $fichier = fopen("BDD/export.csv","w");//lien à modifier pour exporer sur le bureau 
         fclose($fichier);
-
+        
         //Ouverture en écriture 
-        $fichier = fopen("../export.csv","w+");//lien à modifier pour exporer sur le bureau 
-        $chaine="";
+        $fichier = fopen("BDD/export.csv","w+");//lien à modifier pour exporer sur le bureau 
+        $chaine = "";
+        $titre = "Référence;Libellé;Emplacement;Quantité;\n";
+        $titre = utf8_decode($titre); 
+        fwrite($fichier,$titre);
 
         foreach ($lesLots as $unLot)//On affiche chaque entrée une à une
         {
             $reference = $unLot['reference'];
+            $libelle = $unLot['libelle'];
             $emplacement = $unLot['emplacement'];
             $qte = $unLot['qte'];
             
-            //Ajout des données dans la chaine 
+            // //Ajout des données dans la chaine 
             $chaine = "\"".$reference."\";";
+            $chaine .= "\"".$libelle."\";";
             $chaine .= "\"".$emplacement."\";";
             $chaine .= "\"".$qte."\";";
+            
+            $chaine = utf8_decode($chaine."\n");//Saut de ligne + caractères spéciaux
 
-            fwrite($fichier,$chaine."\r\n");//saut de ligne 
+            fwrite($fichier,$chaine);    
         }
         
         fclose($fichier);
-        $bool=true;
 
         echo '<p class="msg_success"> Ok téléchargement avec succès </p>';
-        
-        return $bool;
     }
     public function getById($id_lot) 
     {

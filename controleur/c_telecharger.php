@@ -16,7 +16,7 @@ switch($action){
 //ajout pour téléchargement à modifier 
     case 'afficherBtnTelecharger':{
 
-        include("./vues/v_telecharger.php");//ouverture de la page téléchargement
+        include("vues/v_telecharger.php");//ouverture de la page téléchargement
 
         break;
     }
@@ -24,6 +24,8 @@ switch($action){
     case 'telecharger':{
         //Action de télcharger lors de l'appui sur le boutton on appelle la fonction telechargerLesLots
         $telecharger = $pdo->telechargeLesLots();
+
+        include("vues/v_content.php");
         break;
 
       
